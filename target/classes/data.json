@@ -1,0 +1,32 @@
+[
+  {
+    "saldo": 0,
+    "agencia": 1,
+    "numero": 88,
+    "senha": 934,
+    "titular": {
+      "nome": "Cristian",
+      "cpf": "123.345.345.09"
+    }
+  },
+  {
+    "saldo": 0,
+    "agencia": 1,
+    "numero": 119,
+    "senha": 7120,
+    "titular": {
+      "nome": "Pato",
+      "cpf": "123.987.098.23"
+    }
+  },
+  {
+    "saldo": 0,
+    "agencia": 1,
+    "numero": 29,
+    "senha": 9824,
+    "titular": {
+      "nome": "Cris",
+      "cpf": "234.394.934.65"
+    }
+  }
+]
