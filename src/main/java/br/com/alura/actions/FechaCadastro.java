@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import br.com.alura.gui.LoginForm;
+import br.com.alura.view.LoginForm;
 
 public class FechaCadastro implements ActionListener{
 	
-	private JFrame frame;
+	private final JFrame frame;
 	
 	public FechaCadastro(JFrame frame) {
 		this.frame = frame;

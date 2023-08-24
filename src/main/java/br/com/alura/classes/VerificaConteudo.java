@@ -1,5 +1,7 @@
 package br.com.alura.classes;
 
+import br.com.alura.conta.Conta;
+
 import java.io.File;
 import java.util.List;
 

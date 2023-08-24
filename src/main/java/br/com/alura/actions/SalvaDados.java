@@ -9,9 +9,9 @@ import br.com.alura.classes.SalvaEConsultaDados;
 
 public class SalvaDados implements ActionListener{
 	
-	private JTextField cpf;
-	private JTextField nome;
-	private JTextField senha;
+	private final JTextField cpf;
+	private final JTextField nome;
+	private final JTextField senha;
 	
 	public SalvaDados(JTextField cpf, JTextField nome, JTextField senha) {
 		this.cpf = cpf;
@@ -26,9 +26,9 @@ public class SalvaDados implements ActionListener{
 		String parsedNome = nome.getText();
 		int parsedSenha = Integer.parseInt(senha.getText());
 
-		SalvaEConsultaDados reader = new SalvaEConsultaDados();
+		SalvaEConsultaDados salvaEConsulta = new SalvaEConsultaDados();
 		
-		reader.add(parsedCpf, parsedNome, parsedSenha);
+		salvaEConsulta.add(parsedCpf, parsedNome, parsedSenha);
 		
 	}
 

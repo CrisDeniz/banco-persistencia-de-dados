@@ -1,14 +1,14 @@
-package br.com.alura.classes;
+package br.com.alura.conta;
 
 import java.util.Random;
 
 public class Conta {
 	
 	private int saldo;
-	private int agencia;
-	private int numero;
-	private int senha;
-	private Titular titular;
+	private final int agencia;
+	private final int numero;
+	private final int senha;
+	private final Titular titular;
 	
 	public Conta( String nome, String cpf, int senha) {
 		this.agencia = 0001;
@@ -25,8 +25,8 @@ public class Conta {
 	public Titular getTitular() {
 		return titular;
 	}
-	
-	
+
+
 	public int getSaldo() {
 		return saldo;
 	}
@@ -38,19 +38,19 @@ public class Conta {
 	public int getNumero() {
 		return numero;
 	}
-	
+
 	public void depositar(int saldo) {
 		this.saldo += saldo;
 	}
-	
 
 	@Override
 	public boolean equals(Object obj) {
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
 		Conta conta = (Conta) obj;
-		
-		
+
 		return this.getTitular().getCpf().equals(conta.getTitular().getCpf());
-	
 	}
 	
 	@Override
@@ -61,10 +61,5 @@ public class Conta {
 	public int getSenha() {
 		return senha;
 	}
-
-	public void setSenha(int senha) {
-		this.senha = senha;
-	}
-	
 
 }

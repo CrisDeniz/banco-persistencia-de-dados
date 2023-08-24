@@ -1,4 +1,4 @@
-package br.com.alura.gui;
+package br.com.alura.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -10,15 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import br.com.alura.actions.FazerLogin;
-import br.com.alura.actions.FechaLogin;
+import br.com.alura.actions.SalvaDados;
+import br.com.alura.actions.FechaCadastro;
 
+public class CadastroForm extends JFrame{
 
-public class LoginForm extends JFrame{
-
+	
 	private static final long serialVersionUID = 1L;
+	protected JLabel lblNome;
 	protected JLabel lblCpf;
 	protected JLabel lblSenha;
+	protected JTextField tfdNome;
 	protected JTextField tfdCpf;
 	protected JTextField tfdSenha;
 	protected JButton btnLogin;
@@ -26,7 +28,7 @@ public class LoginForm extends JFrame{
 	protected JPanel pnlButtons;
 	protected JPanel pnlForm;
 	
-	public LoginForm() {
+	public CadastroForm() {
 		this.inicializar();
 	}
 
@@ -38,10 +40,6 @@ public class LoginForm extends JFrame{
 		this.getContentPane().add(getPnlForm(), BorderLayout.CENTER);
 		this.getContentPane().add(getPnlButtons(), BorderLayout.PAGE_END);
 		this.pack();
-		
-		
-		btnCadastro.addActionListener(new FechaLogin(this));
-		btnLogin.addActionListener(new FazerLogin(tfdCpf, tfdSenha));
 	}
 	
 	public JPanel getPnlButtons() {
@@ -53,7 +51,9 @@ public class LoginForm extends JFrame{
 			
 			pnlButtons.add(btnLogin);
 			pnlButtons.add(btnCadastro);
-
+			
+			btnCadastro.addActionListener(new SalvaDados(tfdCpf,tfdNome,tfdSenha));
+			btnLogin.addActionListener(new FechaCadastro(this));
 		}
 		
 		return pnlButtons;
@@ -65,12 +65,16 @@ public class LoginForm extends JFrame{
 		if (pnlForm == null) {
 			pnlForm = new JPanel(new GridLayout(3, 2));
 			
+			lblNome = new JLabel("Nome:");
 			lblCpf = new JLabel("CPF:");
 			lblSenha = new JLabel("Senha:");
 			
+			tfdNome = new JTextField(15);
 			tfdCpf = new JTextField(15);
 			tfdSenha = new JTextField(15);
-
+			
+			pnlForm.add(lblNome);
+			pnlForm.add(tfdNome);
 			pnlForm.add(lblCpf);
 			pnlForm.add(tfdCpf);
 			pnlForm.add(lblSenha);
@@ -81,6 +85,3 @@ public class LoginForm extends JFrame{
 	}
 	
 }
-
-
-

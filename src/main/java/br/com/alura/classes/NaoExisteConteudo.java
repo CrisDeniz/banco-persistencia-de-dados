@@ -5,8 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 
+import br.com.alura.conta.Conta;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -18,33 +20,31 @@ public class NaoExisteConteudo extends VerificaConteudo{
 
 	@Override
 	public void verificar(String gson, List<Conta> contas) {
-		
+
 		Gson builder = new GsonBuilder().setPrettyPrinting().create();
-		
-		Path filePath = Path.of("C:\\Users\\Cristian\\eclipse-projetos-pessoais\\banco\\src\\main\\resources\\data.json");
-		
-		try {	
-			
+
+		Path filePath = Path.of(new DataPath().getPath());
+
+		try {
+
 			String content = Files.readString(filePath);
 
-			Conta[] contaArray = builder.fromJson(content, Conta[].class); 
-			
-			for (Conta conta : contaArray) {
-				contas.add(conta);
-			}
-			
-			String newGson = builder.toJson(contas);
-			
-			try (FileWriter writer = new FileWriter("C:\\Users\\Cristian\\eclipse-projetos-pessoais\\banco\\src\\main\\resources\\data.json")) {
-				writer.write(newGson);
+			Conta[] contaArray = builder.fromJson(content, Conta[].class);
+
+			contas.addAll(Arrays.asList(contaArray));
+
+			String novoGson = builder.toJson(contas);
+
+			try (FileWriter writer = new FileWriter(new DataPath().getPath())) {
+				writer.write(novoGson);
 			} catch (IOException e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
-			
+
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		
+
 	}
 
 	@Override

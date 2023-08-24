@@ -4,13 +4,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.alura.conta.Conta;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class SalvaEConsultaDados {
 	
 
-	public static List<Conta> contas = new ArrayList<Conta>();
+	public static List<Conta> contas = new ArrayList<>();
 	
 	
 	public void add(String cpf, String nome, int senha) {
@@ -25,7 +26,7 @@ public class SalvaEConsultaDados {
 		
 		String gson = builder.toJson(contas);
 		
-		File arquivo = new File("C:\\Users\\Cristian\\eclipse-projetos-pessoais\\banco\\src\\main\\resources\\data.json");
+		File arquivo = new File(new DataPath().getPath());
 		
 		VerificaConteudo conteudo = new ExisteConteudo( new NaoExisteConteudo(null));
 		

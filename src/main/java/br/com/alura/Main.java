@@ -1,10 +1,10 @@
-package br.com.alura.classes;
+package br.com.alura;
 
 
 import javax.swing.SwingUtilities;
 
 
-import br.com.alura.gui.CadastroForm;
+import br.com.alura.view.CadastroForm;
 
 
 public class Main {

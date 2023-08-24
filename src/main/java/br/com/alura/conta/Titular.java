@@ -1,9 +1,9 @@
-package br.com.alura.classes;
+package br.com.alura.conta;
 
 public class Titular {
 	
-	private String nome;
-	private String cpf;
+	private final String nome;
+	private final String cpf;
 	
 	public Titular(String nome, String cpf) {
 		this.nome = nome;
